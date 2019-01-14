@@ -1,0 +1,8 @@
+npm-debug.log
+nohup.log
+nohup.out
+node_modules
+.DS_Store
+.idea/
+package-lock.json
+/package-lock.json
