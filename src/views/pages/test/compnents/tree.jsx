@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class Test extends Component{
+export default class Tree extends Component{
 	render(){
 		return (
 			<div>

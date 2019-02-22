@@ -176,51 +176,6 @@ class Util{
 		//console.log(moment.utc(date).utcOffset(8).format("YYYY-MM-DD HH:mm"))
 		//return moment(date).utcOffset(8);
 	}
-
-	imgSize(_url,size){
-		if(!_url || _url.indexOf('mogucdn')<0){
-			return _url;
-		}
-		let url = this.getHttpsLink(_url);
-		//开发环境不用https了，废图太多
-		if(location.hostname == 'frontend.home.meili-inc.com'){
-			url = _url;
-		}
-		let r = /(\_\d+x\d+\.[a-zA-Z]+)/.exec(url)
-		if(r && r.length >0){
-			let index = url.indexOf(r[0]);
-			if(index > 0){
-				url = url.substring(0,index+r[0].length)
-			}
-		}
-		let ext = '';
-		try{
-			ext = /.+(\.\w+)$/.exec(url)[1]
-		}catch(e){
-		}
-		let extList = ['.gif','.webp','.png','.jpg'];
-		if(extList.indexOf(ext) < 0){
-			ext = '.jpg';
-		}
-		return url+"_"+size+ext;
-	}
-	getHttpsLink(str){
-		if(str.indexOf('mogucdn') <0){
-			return str;
-		}
-		str = str.replace(/^http:/,"https:");
-		return str.replace(/(s\d+\.(mogujie|mogucdn))/,"s10.mogucdn");
-	}
-	getAvatar(url,size,sex){
-		if(!url){
-			if(sex === 1){
-				url = valueData.boy_avatar;
-			}else{
-				url = valueData.girl_avatar;
-			}
-		}
-		return this.imgSize(url,size);
-	}
 	//去除字符串空格
 	trimStr(str){
 		return str.replace(/(^\s*)|(\s*$)/g,"");

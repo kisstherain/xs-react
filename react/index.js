@@ -1,4 +1,4 @@
-import {ReactComponent,ReactElement,ReactMount,ReactConstant} from './lib';
+import {ReactComponent,ReactElement,ReactMount,ReactConstant,Util} from './lib';
 
 class React{
 	version = ReactConstant.VERSION;
@@ -8,6 +8,7 @@ class React{
 	render = ReactMount.render;
 	unmountComponentAtNode = ReactMount.unmountComponentAtNode;
 	findDOMNode = ReactMount.findDOMNode;
+	getNodeComponent = Util.getNodeComponent.bind(Util);
 }
 
 module.exports = new React;

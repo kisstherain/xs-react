@@ -24,10 +24,10 @@ module.exports = {
 		],
 		alias: {
 			'src': path.resolve(__dirname, '../src'),
-			//'react': path.resolve('./node_modules/react'),
-			//'react-dom': path.resolve('./node_modules/react-dom'),
-			'react': path.resolve('./dist'),
-			'react-dom': path.resolve('./dist'),
+			'react': path.resolve('./node_modules/react'),
+			'react-dom': path.resolve('./node_modules/react-dom'),
+			//'react': path.resolve('./react'),
+			//'react-dom': path.resolve('./react'),
 			'classnames': path.resolve('./node_modules/classnames'),
 			'autoprefixer': path.resolve('./node_modules/autoprefixer'),
 		}

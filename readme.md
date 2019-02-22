@@ -3,13 +3,20 @@
 	webpack添加alias
 	resolve: {
 		alias: {
-			'react': '@meili/treact',
-			'react-dom': '@meili/treact',
+			'react': 'mreact',
+			'react-dom': 'mreact',
 		}
 	}
 
-refs使用方法回调，即  ref={(node)=>{ this.node = node;}}
+### 注意
 
-element : react节点数据
-node		：原生节点
-instance: react实例
+	1.refs使用方法回调，即  ref={(node)=>{ this.node = node;}}
+
+	2.自带classNames功能
+	className={[{a:1,b:false},'c',['d']]}
+	className="abc"
+	className={{a:true,b:false}}
+
+	3.提供节点反查react component功能
+	import {getNodeComponent} from 'react';
+

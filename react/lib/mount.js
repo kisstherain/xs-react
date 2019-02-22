@@ -17,7 +17,7 @@ export default class ReactMount{
 			let instance = ReactInstantiate.create(v);
 			container.innerHTML = '';
 			instance.mount(container);
-			components.push(instance.componentObj);
+			components.push(instance);
 		})
 
 		//触发回调

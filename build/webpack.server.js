@@ -20,7 +20,6 @@ var serverConf = {
 
 //mockPaths.forEach(function ( v ) {
 	//serverConf.proxy[ '/' + v ] = {
-		//target: 'http://preguwen.meili-inc.com',
 	//};
 //});
 
