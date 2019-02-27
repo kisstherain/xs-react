@@ -1,13 +1,3 @@
-/**=============================================================================
-#	  FileName: cache.js
-#		  Desc: 缓存服务
-#		Author: teni
-#		 Email: teni@mogujie.com
-#	  HomePage: https://github.com/putten
-#	   Version: 0.0.1
-#	LastChange: 2016-06-20 15:41:22
-#	   History:
-=============================================================================*/
 import BaseServer from 'core/baseServer';
 
 let cacheList = {a:1};

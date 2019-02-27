@@ -1,14 +1,3 @@
-/**=============================================================================
-#	  FileName: ajax.js
-#		  Desc: ajax 组件，使用fetch做底层，对外封装
-#		Author: teni
-#		 Email: teni@mogujie.com
-#	  HomePage: https://github.com/putten
-#	   Version: 0.0.1
-#	LastChange: 2016-06-03 09:55:44
-#	   History:
-=============================================================================*/
-
 import CacheServer from 'server/cache';
 import Util from 'core/util';
 import Url from './url';
