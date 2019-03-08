@@ -21,18 +21,36 @@ var ReactComponent = function () {
 	function ReactComponent(props) {
 		_classCallCheck(this, ReactComponent);
 
+		this._reactInternalInstanceCbk = [];
+
 		this.props = props;
 	}
 
 	_createClass(ReactComponent, [{
 		key: 'setState',
 		value: function setState(data, callback) {
+			var _this = this;
+
 			if (!this.state) {
 				this.state = {};
 			}
 			var prevState = _extends({}, this.state);
 			_extends(this.state, data);
-			this._reactInternalInstance.receiveComponent(null, callback);
+			//延迟合并setstate
+			clearTimeout(this._reactInternalInstanceTimeout);
+			//保存回掉
+			if (callback) {
+				this._reactInternalInstanceCbk = this._reactInternalInstanceCbk || [];
+				this._reactInternalInstanceCbk.push(callback);
+			}
+			this._reactInternalInstanceTimeout = setTimeout(function () {
+				_this._reactInternalInstance.receiveComponent(function () {
+					_this._reactInternalInstanceCbk.forEach(function (v) {
+						v();
+					});
+					_this._reactInternalInstanceCbk = [];
+				});
+			}, 0);
 		}
 	}]);
 

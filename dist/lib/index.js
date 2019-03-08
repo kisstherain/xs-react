@@ -16,6 +16,10 @@ var _component = require('./component');
 
 var _component2 = _interopRequireDefault(_component);
 
+var _util = require('./util');
+
+var _util2 = _interopRequireDefault(_util);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //输出所有类，用于外部继承替换
@@ -23,5 +27,6 @@ module.exports = {
 	ReactMount: _mount2.default,
 	ReactConstant: _constant2.default,
 	ReactElement: _element2.default,
-	ReactComponent: _component2.default
+	ReactComponent: _component2.default,
+	Util: _util2.default
 };

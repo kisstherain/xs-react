@@ -133,12 +133,15 @@ var ReaceFragment = function (_Base) {
 
 	}, {
 		key: 'receiveComponent',
-		value: function receiveComponent() {
+		value: function receiveComponent(callback) {
 			if (this.hasUnmount) {
 				return;
 			}
 			if (this.updateChild()) {
 				this.remountChild();
+			}
+			if (callback) {
+				callback();
 			}
 		}
 

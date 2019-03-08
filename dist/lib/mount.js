@@ -44,7 +44,7 @@ var ReactMount = function () {
 				var instance = _instantiate2.default.create(v);
 				container.innerHTML = '';
 				instance.mount(container);
-				components.push(instance.componentObj);
+				components.push(instance);
 			});
 
 			//触发回调

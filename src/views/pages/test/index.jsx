@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import A from './components/a';
+import B from './components/b';
 import Tabs from './components/tabs';
 const TabPane = Tabs.Pane;
 import './index.less';
@@ -37,7 +38,10 @@ export default class Test extends Component{
 		return (
 			<div>
 				{this.state.msg}
-				<A>ddd</A>
+				<B>
+					ddd
+					<A>ddd</A>
+				</B>
 				<Tabs defaultActiveKey="tab2" inkBarWidth={26} headerBorder={false} headerClassName="bg-white">
 					<TabPane tab="tab1">测试1</TabPane>
 					<TabPane tab="tab2">测试2</TabPane>

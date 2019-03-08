@@ -14,6 +14,7 @@ var React = function React() {
 	this.render = _lib.ReactMount.render;
 	this.unmountComponentAtNode = _lib.ReactMount.unmountComponentAtNode;
 	this.findDOMNode = _lib.ReactMount.findDOMNode;
+	this.getNodeComponent = _lib.Util.getNodeComponent.bind(_lib.Util);
 };
 
 module.exports = new React();
