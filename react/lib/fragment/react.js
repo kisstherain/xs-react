@@ -74,12 +74,15 @@ export default class ReaceFragment extends Base{
 	}
 
 	//数据变更
-	receiveComponent(){
+	receiveComponent(callback){
 		if(this.hasUnmount){
 			return;
 		}
 		if(this.updateChild()){
 			this.remountChild();
+		}
+		if(callback){
+			callback()
 		}
 	}
 

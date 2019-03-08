@@ -1,48 +1,49 @@
 import React, { Component } from 'react'
-import route from 'core/route';
+import Url from 'core/url';
+import Route from './route';
 
 export default class Router extends Component {
 	constructor(props){
 		super(props);
-		this.state = route.current || {};
-		route.on("change",this.changePage.bind(this));
-		route.on("switch",this.switchPage.bind(this));
+		Route.setConf(props.conf)
 	}
 	componentDidMount(){
-		this.hasMount = true;
-		if(this.preData){
-			this.setState(this.preData)
-			this.preData = null;
-		}
-	}
-	componentWillUnmount(){
-		this.hasMount = false;
-	}
-	setState(data){
-		if(!this.hasMount){
-			//如果没有挂载 则将要改的数据先保存
-			this.preData = data;
-			return;
-		}
-		super.setState(data)
-	}
-	switchPage(page,data){
-		if(!page){
-			return;
-		}
-		this.setState({
-			page:page,
-			params:data
+		Route.on("change",()=>{
+			//延迟50ms执行，防止其他组件有change事件未卸载
+			//setTimeout(()=>{
+			this.setState({},()=>{
+				//渲染完成触发渲染路由事件
+				Route.changeFinish();
+			})
+			//},50)
 		})
 	}
-	changePage(){
-		this.setState(route.current);
-	}
 	render() {
-		let RoutePage = this.state.page;
+		if(!Route.current){
+			return null;
+		}
+		let Layout = Route.current.layout;
+		let RoutePage = Route.current.page;
+		if(!RoutePage){
+			return null;
+		}
+		//判断页面是否真的改变,如果不变，则ctrl不变
+		if(this.page != RoutePage){
+			this.ctrl = null;
+		}
+		if(this.page != RoutePage && RoutePage.Controller){
+			this.ctrl = new RoutePage.Controller;
+		}
+		this.page = RoutePage;
+		Route.current.ctrl = this.ctrl;
+
+		if(!Layout){
+			return <RoutePage />
+		}
 		return (
-			<RoutePage {...this.state.params}/>
+			<Layout>
+				<RoutePage />
+			</Layout>
 		)
 	}
 }
-

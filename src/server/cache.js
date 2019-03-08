@@ -1,6 +1,6 @@
 import BaseServer from 'core/baseServer';
 
-let cacheList = {a:1};
+let cacheList = {};
 class CacheServer extends BaseServer{
 	//页面缓存
 	update(name,value,expire){
