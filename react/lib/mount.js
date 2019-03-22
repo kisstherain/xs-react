@@ -53,4 +53,8 @@ export default class ReactMount{
 			return ins.getNodesArr(ins.childNodes);
 		}
 	};
+
+	//节点外渲染
+	static createPortal(){
+	}
 }

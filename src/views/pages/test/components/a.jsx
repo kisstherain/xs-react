@@ -8,6 +8,10 @@ export default class A extends Component{
 			this.setState({})
 		},11)
 	}
+	setVal(val){
+		this.val = val;
+		this.setState({})
+	}
 	render(){
 		const {children} = this.props;
 		return (
@@ -16,6 +20,7 @@ export default class A extends Component{
 					<div key={index}>{item}</div>
 				</For>
 				{children}
+				{this.val}
 			</div>
 		)
 	}
