@@ -5,6 +5,7 @@ var serverConf = {
 	host:'127.0.0.1',
 	port:'10088',
 	progress: false,
+	open:true,
 	hot: true,
 	inline: true,
 	proxy: {},
